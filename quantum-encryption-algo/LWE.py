@@ -69,7 +69,6 @@ def decrypt(secret_key, ciphertext):
 
     ret = '0b' + ''.join(ret)
     return ret
-    # return int(ret, 2)
 
 
 A = random.sample(range(q), nvals)
