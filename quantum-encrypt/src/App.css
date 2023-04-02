@@ -1,3 +1,6 @@
+* {
+  font-family: "Poppins", sans-serif;
+}
 .App {
   text-align: center;
 }
@@ -14,7 +17,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: rgb(75, 93, 255);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -32,11 +35,13 @@ form {
 }
 .f-20 {
   font-size: 50px;
+  font-family: "Poppins", sans-serif !important;
+  font-weight: 700;
 }
 .in {
   font-size: 15px;
   padding: 5px;
-  width: 60%;
+  width: 500px !important;
 }
 
 .btn {
@@ -68,12 +73,22 @@ form {
   justify-content: space-evenly;
   /* align-items: center; */
   width: 100%;
+  overflow: hidden;
 }
 .mr-10 {
   margin-right: 50px;
 }
 .mb {
   margin-bottom: 100px;
+}
+.binrep {
+  justify-self: center;
+  word-wrap: break-word;
+  width: 850px;
+}
+.w-50 {
+  justify-items: center;
+  align-self: center;
 }
 @keyframes App-logo-spin {
   from {

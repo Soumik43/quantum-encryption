@@ -54,13 +54,13 @@ function App() {
             <div className="flex-col">
               <div className="mr-10">
                 Values of U
-                {u.map((data) => {
+                {u.map((data, key) => {
                   return (
-                    <div className="flex-row">
+                    <div key={key} className="flex-row">
                       <p>[&nbsp;</p>
-                      {data.map((num) => {
+                      {data.map((num, key) => {
                         return (
-                          <span className="flex-row">
+                          <span key={key} className="flex-row">
                             <p>{num}&nbsp;</p>
                           </span>
                         );
@@ -72,13 +72,13 @@ function App() {
               </div>
               <div>
                 Values of V
-                {v.map((data) => {
+                {v.map((data, key) => {
                   return (
-                    <div className="flex-row">
+                    <div key={key} className="flex-row">
                       <p>[&nbsp;</p>
-                      {data.map((num) => {
+                      {data.map((num, key) => {
                         return (
-                          <span>
+                          <span key={key}>
                             <p>{num}&nbsp;</p>
                           </span>
                         );
@@ -95,6 +95,7 @@ function App() {
                 className="in"
                 placeholder="Enter Secret Key"
               ></input>
+              <br></br>
               <input
                 type="password"
                 className="in"
@@ -110,8 +111,19 @@ function App() {
             ) : (
               <p>
                 Decrypted text is
-                <h3>{dectext}</h3>
-                <h3>{bin}</h3>
+                <br />
+                <h3 className="binrep">
+                  STRING REPRESENTATION
+                  <br />
+                  {dectext}
+                </h3>
+                <div className="w-50">
+                  <h3 className="binrep">
+                    <br />
+                    BINARY REPRESENTATION <br />
+                    {bin}
+                  </h3>
+                </div>
               </p>
             )}
           </div>
