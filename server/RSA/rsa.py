@@ -1,6 +1,7 @@
 import math
 import random
 from flask_cors import CORS
+import numpy as np
 from flask import Flask, request
 import json
 app = Flask(__name__)
@@ -82,7 +83,11 @@ def generate_prime():
         if is_prime(n):
             return n
 
-
+def generate_random_prime(start, end):
+    while True:
+        n = random.randint(start, end)
+        if is_prime(n):
+            return n
 @app.route("/", methods=['GET'])
 def home():
     return "<h1>SERVER IS WORKING</h1>"
@@ -106,7 +111,15 @@ def lwe():
         e = []
         s = 20
         q = 97
-        A = random.sample(range(q), nvals)
+        A = np.empty(20)
+
+        # Generate prime numbers within the range of 0 to 251
+        n = 0
+        i = 2
+        for i in range(20):
+            A[i] = generate_random_prime(0, 251)
+        # A = random.sample(range(q), nvals)
+        print(A)
         for x in range(0, len(A)):
             e.append(random.randint(1, 4))
             B.append((A[x]*s+e[x]) % q)
@@ -122,7 +135,7 @@ def lwe():
 
         ciphertext = encrypt(public_key, text_bin, q)
         response = decrypt(s, ciphertext, q)
-        print(type(s), "typeofs")
+        # print(type(s), "typeofs")
         bin_data = response[2:]
         str_data = ' '
         for i in range(0, len(bin_data), 7):
@@ -141,7 +154,7 @@ def lwe_decrypt():
         q = ciphertext['q']
         s = ciphertext['s']
         ciphertext = ciphertext['u'], ciphertext['v']
-        print(((s), ciphertext, (q)))
+        # print(((s), ciphertext, (q)))
         res = decrypt(s, ciphertext, q)
         bin_data = res[2:]
         str_data = ' '
