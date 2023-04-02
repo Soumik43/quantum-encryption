@@ -35,7 +35,10 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p className="f-20">QUANTUM IMMUNE ENCRYPTION ALGORITHM</p>
+        <p className="f-20 s">
+          QUANTUM IMMUNE ENCRYPTION ALGORITHM USING <br></br>LEARNING WITH
+          ERRORS
+        </p>
         <form onSubmit={handlesubmit}>
           <label>ENTER TEXT TO BE ENCRYPTED</label>
           <br></br>
